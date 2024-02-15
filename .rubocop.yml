@@ -1,0 +1,7 @@
+AllCops:
+  SuggestExtensions: false
+  NewCops: enable
+  Exclude:
+    - 'bin/*'
+Metrics/BlockLength:
+  AllowedMethods: ['describe', 'context']
