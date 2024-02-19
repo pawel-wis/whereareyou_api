@@ -3,10 +3,10 @@ pipeline {
         docker { image 'ruby:3.3.0' }
     }
     stages {
-        stage('Test') {
+        stage('Install dependencies') {
             steps {
                 sh 'ruby --version'
-                sh 'rvm --version'
+                sh 'bundle install'
             }
         }
     }
