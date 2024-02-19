@@ -6,6 +6,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'ruby --version'
+                sh 'rvm --version'
             }
         }
     }
