@@ -31,7 +31,7 @@ jobs:
         PGUSER: postgres
         RAILS_ENV: test
       run: |
-            echo $RAILS_MASTER_KEY > config/master.key
+            echo c37017f17f24b8fc412a0ebf0a3602bc > config/master.key
             bundle config path vendor/bundle
             bundle install --jobs 4 --retry 3
             bin/rails db:setup
