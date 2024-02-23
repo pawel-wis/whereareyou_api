@@ -33,8 +33,6 @@ jobs:
             yarn
     - name: Run Tests
       env:
-        PGHOST: localhost
-        PGUSER: postgres
         RAILS_ENV: test
       run: bin/rails spec
   lint:
@@ -55,4 +53,4 @@ jobs:
       - name: Security audit application code
         run: brakeman -q -w2
       - name: Lint Ruby files
-        run: rubocop --parallel
+        run: bin/rubocop --parallel
