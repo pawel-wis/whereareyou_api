@@ -14,13 +14,6 @@ jobs:
     strategy:
       matrix:
         ruby-version: ['3.2.2']
-
-    # services:
-    #   postgres:
-    #     image: postgres:11.5
-    #     ports: ["5432:5432"]
-    #     options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up Ruby
@@ -31,16 +24,6 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-
-      # - name: Install PostgreSQL 11 client
-      #   run: |
-      #     sudo apt-get -yqq install libpq-dev
-      # - uses: actions/cache@v1
-      #   with:
-      #     path: ./skipper/vendor/bundle
-      #     key: ${{ runner.os }}-bundle-${{ hashFiles('**/Gemfile.lock') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-bundle-
     - name: Build App
       env:
         RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
@@ -57,4 +40,4 @@ jobs:
         PGHOST: localhost
         PGUSER: postgres
         RAILS_ENV: test
-        run: rspec
+      run: rspec
