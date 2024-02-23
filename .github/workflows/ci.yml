@@ -49,7 +49,7 @@ jobs:
       # Add or replace any other lints here
       - name: Install rubocop, brakeman, and bundler-audit
         run: |
-          gem install rubocop rubocop-rspec brakeman bundler-audit ubocop-discourse
+          gem install rubocop rubocop-rspec rubocop-discourse brakeman bundler-audit
       - name: Security audit dependencies
         run: bundle-audit --update
       - name: Security audit application code
