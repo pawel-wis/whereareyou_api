@@ -2,7 +2,7 @@
 
 # Members conftorrel to handle all users requests
 class MembersController < ApplicationController
-  before_aciton :authenticate_user!
+  before_action :authenticate_user!
 
   def show
     user = return_user_from_token
