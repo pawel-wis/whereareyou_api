@@ -14,6 +14,7 @@ class MembersController < ApplicationController
 
   private
 
+  # Search user who is owner of current jwt token
   def return_user_form_token
     jwt_payload = JWT.decode(
       request.headers['Authorization'].split[1],
