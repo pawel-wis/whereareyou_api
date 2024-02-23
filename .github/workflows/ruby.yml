@@ -34,7 +34,7 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - run: 'echo ${{secrets.RAILS_MASTER_KEY}} > config/master.key'
+    - run: 'echo ${{secrets.RAILS_MASTER_KEY}} | base64 > config/master.key'
     - name: Prepare Database
       run: |
         bundle install
