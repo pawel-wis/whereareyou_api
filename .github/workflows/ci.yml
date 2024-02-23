@@ -51,7 +51,7 @@ jobs:
         run: |
           gem install rubocop brakeman bundler-audit
       - name: Security audit dependencies
-        run: $GEM_HOME/bin/bundler-audit --update
+        run: bundle-audit --update
       - name: Security audit application code
         run: bin/brakeman -q -w2
       - name: Lint Ruby files
