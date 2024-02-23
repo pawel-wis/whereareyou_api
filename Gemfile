@@ -39,15 +39,14 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'brakeman'
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
-  gem 'brakeman'
   gem 'rubocop'
   gem 'rubocop-discourse'
   gem 'rubocop-rspec'
-  gem 'rubocop-discourse'
 end
 
 group :development do
