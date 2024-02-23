@@ -29,8 +29,8 @@ pipeline{
         }
         stage('Linst code and do security checks'){
             steps{
-               sh 'rubocop'
-               sh 'brakeman'
+               sh '${GEM_HOME}/bin/rubocop'
+               sh '${GEM_HOME}/bin/brakeman'
             }
         }
         stage('Rspec tests'){
