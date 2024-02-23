@@ -1,6 +1,6 @@
 pipeline{
     agent {
-        docker { image 'ruby:3.2.2' }
+        docker { image 'ruby:3.3.0' }
     }
     environment {
         GEM_HOME = ".gems_storage"
