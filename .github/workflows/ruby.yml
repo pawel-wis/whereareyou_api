@@ -35,7 +35,7 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Upload rails key
-      run: 'echo $(echo -n $RAILS_KEY | base64) > config/master.key'
+      run: 'echo $(echo -n $RAILS_KEY | base16) > config/master.key'
       shell: bash
       env: 
         RAILS_KEY: ${{ secrets.RAILS_MASTER_KEY }}
