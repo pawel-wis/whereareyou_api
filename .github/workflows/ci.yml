@@ -26,12 +26,13 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Build App
       env:
-        RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+        RAILS_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         PGHOST: localhost
         PGUSER: postgres
         RAILS_ENV: test
       run: |
-            echo ${{ secrets.RAILS_MASTER_KEY }} | base16 -d > config/master.key
+            echo $RAILS_KEY | base64 -d > config/master.key
+            echo ${#$RAILS_KEY}
             # echo "${{ secrets.RAILS_MASTER_KEY }}" > config/master.key
             # echo c37017f17f24b8fc412a0ebf0a3602bc > config/master.key
             bundle config path vendor/bundle
