@@ -8,7 +8,7 @@ class MembersController < ApplicationController
     user = return_user_from_token
     render json: {
       message: 'We got this',
-      user:
+      user: user
     }
   end
 
