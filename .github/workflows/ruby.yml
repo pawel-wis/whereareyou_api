@@ -38,7 +38,7 @@ jobs:
       shell: bash
       env: 
         RAILS_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-      run: 'echo $RAILS_KEY  > config/master.key'
+      run: echo $RAILS_KEY  > config/master.key
     - name: Prepare Database
       run: |
         bundle install
