@@ -4,5 +4,6 @@ AllCops:
   Exclude:
     - 'bin/*'
     - 'db/schema.rb'
+    - 'vendor/*'
 Metrics/BlockLength:
   AllowedMethods: ['describe', 'context']
