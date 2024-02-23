@@ -38,5 +38,5 @@ jobs:
     - name: Prepare Database
       run: |
         bundle install
-        rails db:create
-        rails db:migrate
+        bin/rails db:create
+        bin/rails db:migrate
