@@ -44,7 +44,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'bundler-audit'
-  gem 'rubocop
+  gem 'rubocop'
 end
 
 group :development do
