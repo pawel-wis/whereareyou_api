@@ -20,7 +20,7 @@ module Users
       render json: {
         message: 'Singed up sucessfully.',
         user: current_user
-      }, status: :create
+      }, status: :created
     end
 
     def register_failed
