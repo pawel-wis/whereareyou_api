@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :location do
-    longitude { 1.5 }
-    latitude { 1.5 }
+    longitude { rand(-180..180).round(7) }
+    latitude { rand(-90..90).round(7) }
   end
 end
