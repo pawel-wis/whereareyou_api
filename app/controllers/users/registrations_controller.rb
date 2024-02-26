@@ -8,10 +8,15 @@ module Users
     private
 
     def respond_with(resource, _opts = {})
-      register_failed && return unless match_password?(resource)
       register_success && return if resource.persisted?
-      register_failed_already_exist(:username) && return if User.find_by(username: resource.username)
-      register_failed_already_exist(:email) && return if User.find_by(email: resource.email)
+
+      if !match_password?(resource)
+        return register_failed
+      elsif User.find_by(username: resource.username)
+        return register_failed_already_exist(:username)
+      elsif User.find_by(email: resource.email)
+        return register_failed_already_exist(:email)
+      end
 
       register_failed
     end
