@@ -56,6 +56,20 @@ RSpec.describe Users::RegistrationsController, type: :controller do
       expect(response.body).to include('message')
     end
 
+    it "should not create user when password confirmation doesn't match" do
+      user = FactoryBot.build(:user)
+      post :create, params: {
+        user: {
+          email: user.email,
+          password: user.password,
+          password_confirmation: "#{user.password}123",
+          username: user.username
+        }
+      }
+      expect(response).to have_http_status :unprocessable_entity
+      expect(response.body).to include('message')
+    end
+
     it "can't create user with missing mandatory field" do
       user = FactoryBot.build(:user)
       json_template = {
