@@ -10,4 +10,5 @@ class User < ApplicationRecord
          jwt_revocation_strategy: JwtDenylist
   validates_presence_of :email, :password, :username
   validates_uniqueness_of :email, :username
+  validates_confirmation_of :password
 end
