@@ -7,14 +7,14 @@ module Users
 
     private
 
-    def respond_with(resource, _opts = {})
-      register_success && return if resource.persisted?
+    def respond_with(user, _opts = {})
+      register_success && return if user.persisted?
 
-      if !match_password?(resource)
+      if !match_password?(user)
         return register_failed
-      elsif User.find_by(username: resource.username)
+      elsif User.find_by(username: user.username)
         return register_failed_already_exist(:username)
-      elsif User.find_by(email: resource.email)
+      elsif User.find_by(email: user.email)
         return register_failed_already_exist(:email)
       end
 
@@ -40,8 +40,8 @@ module Users
       }, status: :conflict
     end
 
-    def match_password?(resource)
-      resource.password == resource.password_confirmation
+    def match_password?(user)
+      user.password == user.password_confirmation
     end
   end
 end
