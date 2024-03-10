@@ -3,13 +3,11 @@
 # Locations controller class handles user's location requests
 class LocationsController < ApplicationController
   before_action :authenticate_user!
-
   def update
     location = Location.create(location_params)
     location.user_id = current_user.id
-    return update_success if location.save
-
     return update_not_auth if params[:id].to_i != current_user.id
+    return update_success if location.save
 
     update_failed
   end

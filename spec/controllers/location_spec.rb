@@ -50,7 +50,8 @@ RSpec.describe LocationsController, type: :controller do
       put :update, params: {
         id: other_user.id,
         location: {
-          latitude: location.latitude
+          latitude: location.latitude,
+          longitude: location.longitude
         }
       }
       expect(response).to have_http_status :unauthorized

@@ -10,11 +10,8 @@ Rails.application.routes.draw do
                        sessions: 'users/sessions',
                        registrations: 'users/registrations'
                      }
-
   # Locations
   put '/users/:id/locations', to: 'locations#update'
-
-  get '/member-data', to: 'member#show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
