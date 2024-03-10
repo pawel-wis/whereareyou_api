@@ -10,7 +10,6 @@ Rails.application.routes.draw do
                        sessions: 'users/sessions',
                        registrations: 'users/registrations'
                      }
-
   # Locations
   put '/users/:id/locations', to: 'locations#update'
 
