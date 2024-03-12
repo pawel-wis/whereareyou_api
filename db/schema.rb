@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_24_112031) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_12_114821) do
   create_table "jwt_denylist", force: :cascade do |t|
     t.string "jti", null: false
     t.datetime "exp", null: false
@@ -28,6 +28,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_24_112031) do
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
+  create_table "parties", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+  end
+
+  create_table "party_memberships", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "party_id"
+    t.index ["party_id"], name: "index_party_memberships_on_party_id"
+    t.index ["user_id"], name: "index_party_memberships_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -42,4 +57,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_24_112031) do
   end
 
   add_foreign_key "locations", "users"
+  add_foreign_key "party_memberships", "parties"
+  add_foreign_key "party_memberships", "users"
 end
